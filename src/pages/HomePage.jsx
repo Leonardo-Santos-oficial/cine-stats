@@ -5,6 +5,7 @@ import Spinner from '../components/Spinner'
 import ErrorMessage from '../components/ErrorMessage'
 import MovieList from '../components/MovieList'
 import Pagination from '../components/Pagination'
+import { GridSkeleton } from '../components/Skeletons'
 
 export default function HomePage() {
   const [params, setParams] = useSearchParams()
@@ -34,7 +35,7 @@ export default function HomePage() {
       <h1 id="heading" style={{ margin: '1rem 0' }}>
         Filmes {q ? `– Busca por “${q}”` : 'Populares'}
       </h1>
-      {loading && <Spinner label="Carregando filmes" />}
+      {loading && <GridSkeleton />}
       {error && <ErrorMessage message="Não foi possível carregar os filmes. Tente novamente." />}
       {!loading && !error && <MovieList movies={results} />}
       {!loading && !error && total_pages > 1 && (

@@ -3,6 +3,7 @@ import { useMovieDetails } from '../hooks/useMovies'
 import Spinner from '../components/Spinner'
 import ErrorMessage from '../components/ErrorMessage'
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Tooltip } from 'recharts'
+import { DetailsSkeleton } from '../components/Skeletons'
 
 const imgBase = import.meta.env.VITE_TMDB_IMAGE_BASE_URL || 'https://image.tmdb.org/t/p'
 
@@ -10,7 +11,7 @@ export default function DetailsPage() {
   const { id } = useParams()
   const { data, loading, error } = useMovieDetails(id)
 
-  if (loading) return <Spinner label="Carregando detalhes" />
+  if (loading) return <DetailsSkeleton />
   if (error) return <ErrorMessage message="Não foi possível carregar os detalhes." />
   if (!data) return null
 
