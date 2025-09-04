@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="https://raw.githubusercontent.com/Leonardo-Santos-oficial/cine-stats/main/src/assets/TMDB.svg" alt="Cine-Stats - TMDB" width="520" />
+	<img src="https://raw.githubusercontent.com/Leonardo-Santos-oficial/cine-stats/main/src/assets/TMDB.svg?v=1" alt="Cine-Stats - TMDB" width="520" />
 </p>
 
 <p align="center">
