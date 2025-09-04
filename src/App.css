@@ -1,0 +1,4 @@
+/* Layout helpers for containers already defined in index.css */
+#root { min-height: 100%; }
+.container { padding-inline: 1rem; }
+.footer { text-align: center; }
