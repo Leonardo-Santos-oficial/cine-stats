@@ -30,7 +30,10 @@ export default function HomePage() {
 
   return (
     <section aria-labelledby="heading">
-      <h1 id="heading" style={{margin:'1rem 0'}}>Filmes {q ? `– Busca por “${q}”` : 'Populares'}</h1>
+      <Title text={q ? `Busca por “${q}” • Cine-Stats` : 'Filmes Populares • Cine-Stats'} />
+      <h1 id="heading" style={{ margin: '1rem 0' }}>
+        Filmes {q ? `– Busca por “${q}”` : 'Populares'}
+      </h1>
       {loading && <Spinner label="Carregando filmes" />}
       {error && <ErrorMessage message="Não foi possível carregar os filmes. Tente novamente." />}
       {!loading && !error && <MovieList movies={results} />}
@@ -39,4 +42,11 @@ export default function HomePage() {
       )}
     </section>
   )
+}
+
+function Title({ text }) {
+  if (typeof document !== 'undefined') {
+    document.title = text
+  }
+  return null
 }

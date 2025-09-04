@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
 import HomePage from './pages/HomePage.jsx'
 import DetailsPage from './pages/DetailsPage.jsx'
+import NotFound from './pages/NotFound.jsx'
 import './index.css'
 
 const router = createBrowserRouter([
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: 'movie/:id', element: <DetailsPage /> },
+      { path: '*', element: <NotFound /> },
     ],
   },
 ])

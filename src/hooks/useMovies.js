@@ -8,13 +8,22 @@ export function usePopularMovies(page = 1) {
 
   useEffect(() => {
     let alive = true
-    setLoading(true)
-    setError(null)
-    api.get('/movie/popular', { params: { page }})
-      .then((res) => { if (alive) setData(res.data) })
-      .catch((err) => { if (alive) setError(err) })
-      .finally(() => { if (alive) setLoading(false) })
-    return () => { alive = false }
+    const run = async () => {
+      setLoading(true)
+      setError(null)
+      try {
+        const res = await api.get('/movie/popular', { params: { page } })
+        if (alive) setData(res.data)
+      } catch (err) {
+        if (alive) setError(err)
+      } finally {
+        if (alive) setLoading(false)
+      }
+    }
+    run()
+    return () => {
+      alive = false
+    }
   }, [page])
 
   return { data, loading, error }
@@ -28,13 +37,22 @@ export function useSearchMovies(query, page = 1) {
   useEffect(() => {
     if (!query) return
     let alive = true
-    setLoading(true)
-    setError(null)
-    api.get('/search/movie', { params: { query, page }})
-      .then((res) => { if (alive) setData(res.data) })
-      .catch((err) => { if (alive) setError(err) })
-      .finally(() => { if (alive) setLoading(false) })
-    return () => { alive = false }
+    const run = async () => {
+      setLoading(true)
+      setError(null)
+      try {
+        const res = await api.get('/search/movie', { params: { query, page } })
+        if (alive) setData(res.data)
+      } catch (err) {
+        if (alive) setError(err)
+      } finally {
+        if (alive) setLoading(false)
+      }
+    }
+    run()
+    return () => {
+      alive = false
+    }
   }, [query, page])
 
   return { data, loading, error }
@@ -48,13 +66,22 @@ export function useMovieDetails(id) {
   useEffect(() => {
     if (!id) return
     let alive = true
-    setLoading(true)
-    setError(null)
-    api.get(`/movie/${id}`)
-      .then((res) => { if (alive) setData(res.data) })
-      .catch((err) => { if (alive) setError(err) })
-      .finally(() => { if (alive) setLoading(false) })
-    return () => { alive = false }
+    const run = async () => {
+      setLoading(true)
+      setError(null)
+      try {
+        const res = await api.get(`/movie/${id}`)
+        if (alive) setData(res.data)
+      } catch (err) {
+        if (alive) setError(err)
+      } finally {
+        if (alive) setLoading(false)
+      }
+    }
+    run()
+    return () => {
+      alive = false
+    }
   }, [id])
 
   return { data, loading, error }
