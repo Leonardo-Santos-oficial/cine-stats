@@ -9,6 +9,8 @@ export default function Header() {
     const next = new URLSearchParams(params)
     if (q) next.set('q', q)
     else next.delete('q')
+  // reset pagination when a new search is performed
+  next.delete('page')
     navigate({ pathname: '/', search: next.toString() })
   }
 
