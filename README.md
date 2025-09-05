@@ -22,7 +22,7 @@ Descubra, pesquise e visualize dados de filmes usando a API do TMDB. Interface m
 - Detalhes do filme: pôster, título, sinopse, data, nota, gêneros e mais
 - Gráfico (Recharts): comparação Popularidade x Votos
 - Estados de loading/erro + skeleton loaders (grid e detalhes)
-- Responsividade (Grid 2/3/4 colunas) e acessibilidade básica (focus visível, labels)
+- Responsividade mobile-first (Grid 1/2/3/4 colunas), header/busca empilhados em telas pequenas e acessibilidade básica (focus visível, labels)
 
 ## Tecnologias utilizadas
 
@@ -106,6 +106,13 @@ src/
 - Foco visível, labels e `aria-*` em busca e paginação.
 - Skeleton loaders em grid e detalhes para melhor percepção de velocidade.
 - Mensagens de erro amigáveis; estados de loading claros.
+
+Breakpoints (layout):
+
+- 1 coluna (mobile)
+- 2 colunas ≥ 480px
+- 3 colunas ≥ 768px
+- 4 colunas ≥ 1024px
 
 ## Variáveis de ambiente e deploy
 
